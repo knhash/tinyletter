@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiny Letter</title>
+    <meta name="description" content="A minimalist, serverless letter-sharing service with beautiful envelope animations">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Create Letter Form -->
+        <div id="createForm" class="create-form">
+            <h1>TINY LETTER</h1>
+            
+            <div class="create-envelope-scene">
+                <div class="create-url-box-wrapper">
+                    <div id="createUrlDisplay" class="create-url-display">
+                        <h3>Your Letter is Ready</h3>
+                        <div class="create-url-container">
+                            <input type="text" id="createGeneratedUrl" class="create-url-input" readonly>
+                            <button id="createCopyBtn" class="create-copy-btn">Copy</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="createEnvelope" class="create-envelope">
+                    <!-- Front - write envelope text -->
+                    <div class="create-front">
+                        <textarea 
+                            id="createEnvelopeText" 
+                            placeholder="write on the envelope..."
+                            maxlength="100"
+                        ></textarea>
+                    </div>
+                    
+                    <!-- Back - write inside message -->
+                    <div class="create-back">
+                        <div class="create-letter-paper">
+                            <textarea 
+                                id="createInsideText" 
+                                placeholder="write your message..."
+                                maxlength="500"
+                            ></textarea>
+                        </div>
+                        
+                        <!-- Flaps for sealing -->
+                        <div class="create-flap create-flap-top"></div>
+                        <div class="create-flap create-flap-right"></div>
+                        <div class="create-flap create-flap-bottom"></div>
+                        <div class="create-flap create-flap-left"></div>
+                    </div>
+                </div>
+                
+                <div id="slideWall" class="slide-wall"></div>
+            </div>
+            
+            <div class="button-group">
+                <button id="flipBtn" class="action-btn">Flip</button>
+                <button id="sendBtn" class="action-btn">Send</button>
+            </div>
+            <div class="create-hint" id="createHint">[ write your letter ]</div>
+        </div>
+
+        <!-- Letter View -->
+        <div id="letterContainer" class="letter-container">
+            <h1>TINY LETTER</h1>
+            
+            <div class="envelope-scene">
+                <div id="envelope" class="envelope">
+                    <!-- Front of envelope -->
+                    <div class="envelope-front">
+                        <div class="envelope-text" id="envelopeContent"></div>
+                    </div>
+                    
+                    <!-- Back of envelope with flaps -->
+                    <div class="envelope-back">
+                        <!-- Letter paper underneath the flaps -->
+                        <div class="letter-paper">
+                            <div class="letter-text" id="letterContent"></div>
+                        </div>
+                        
+                        <!-- Flaps that cover the letter -->
+                        <div class="flap flap-top"></div>
+                        <div class="flap flap-right"></div>
+                        <div class="flap flap-bottom"></div>
+                        <div class="flap flap-left"></div>
+                    </div>
+                </div>
+                <div class="click-hint" id="clickHint">[ click to open ]</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
